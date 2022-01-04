@@ -1,0 +1,11 @@
+import requests
+from bs4 import BeautifulSoup as bs
+
+URL = "https://coinmarketcap.com/currencies/bitcoin/"
+reponse = requests.get(URL)
+
+htmlContent = bs(reponse.content,'html.parser')
+
+htmlDivTagContent = htmlContent.find('div',{'class':'priceValue'})
+childTagWithPrice = htmlDivTagContent.select_one('span')
+print(f"Current price of Bitcoin is {childTagWithPrice.text}")
