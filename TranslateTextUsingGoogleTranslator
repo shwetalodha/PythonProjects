@@ -4,3 +4,9 @@ inputText = input('Enter text: ')
 inputLang = input('Enter language to translate: ')
 translator = GoogleTranslator(source='auto', target=inputLang)
 print(translator.translate(inputText))
+
+
+Example:
+Enter text: Hello
+Enter language to translate: Fr
+Bonjour
