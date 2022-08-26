@@ -1,0 +1,18 @@
+from azure.storage.blob import BlobServiceClient
+
+storage_account_key = "KEY"
+storage_account_name = "testupload01"
+connection_string = 'CONNECTIONSTRING'
+container_name = "file-holder"
+
+def uploadToBobStorage(file_path, file_name):
+    blob_service_client = BlobServiceClient.from_connection_string(connection_string)    
+    blob_client = blob_service_client.get_blob_client(container=container_name, blob=file_name)
+    
+    print("\nUploading to Azure Storage as blob:\n\t" + file_name)
+
+    # Upload the created file
+    with open(file_path, "rb") as data:
+        blob_client.upload_blob(data)
+
+uploadToBobStorage('C:\\Channel\\Sh.png','ShwetaImage.png')
