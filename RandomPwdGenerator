@@ -1,0 +1,6 @@
+import random
+alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+digits = "1234567890"
+special_chars = "@#*&"all_chars = alphabets + digits + special_chars
+password_len = 12password = "".join(random.sample(all_chars,password_len))
+print(password)
